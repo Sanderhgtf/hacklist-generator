@@ -12,7 +12,13 @@ This list has to follow a certain order, as some words(hacks), can't be used wit
 
 ###### EXAMPLE A:
 ```
+killaura, forcefield, reach, clickaimbot, triggerbot, clickaura Can't be combined
+```
+```
 speed, timer, bhop can't be combined
+```
+```
+timer, fasteat, fastfall, speed, fasteat can't be combined
 ```
 
 ###### EXAMPLE B:
