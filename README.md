@@ -1,0 +1,2 @@
+# hacklist-generator
+ Creates hacklists
