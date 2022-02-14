@@ -10,8 +10,18 @@ This list has to follow a certain order, as some words(hacks), can't be used wit
 > - Being able to store certain lists which you find particulairly usefull in an database, and then retrieve them at will instead of having to generate a new one
 > - Being able to fill in people's answers, for it to automaticaly calculate the score. This scoring has to follow the protocol that' that's discribed in 'EXAMPLE B'
 
-###EXAMPLE A:
+###### EXAMPLE A:
 ```
 speed, timer, bhop can't be combined
+```
+
+###### EXAMPLE B:
+```
+Correct answer:                     +1
+Incorrect answer:                   -1
+Legit (if correct):                 +1
+Legit (if incorrect):                0
+Clickaura or TB instead of FF:    +0.5
+Clickaimbot or TB instead of KA:  +0.5
 ```
 
