@@ -5,9 +5,13 @@ This is for personal use, the goal of this piece of code is to generate a sequen
 This list has to follow a certain order, as some words(hacks), can't be used with one another.
 
 ## Desired features:
-- Being able to generate easy, normal and hard trainings
-- Make sure that ever list follow the protocol that's discribed in 'EXAMPLE A'
-- Being able to store certain lists which you find particulairly usefull in an database, and then retrieve them at will instead of having to generate a new one
-- Being able to fill in people's answers, for it to automaticaly calculate the score. This scoring has to follow the protocol that' that's discribed in 'EXAMPLE B'
+> - Being able to generate easy, normal and hard trainings
+> - Make sure that ever list follow the protocol that's discribed in 'EXAMPLE A'
+> - Being able to store certain lists which you find particulairly usefull in an database, and then retrieve them at will instead of having to generate a new one
+> - Being able to fill in people's answers, for it to automaticaly calculate the score. This scoring has to follow the protocol that' that's discribed in 'EXAMPLE B'
 
+###EXAMPLE A:
+```
+speed, timer, bhop can't be combined
+```
 
