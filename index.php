@@ -4,6 +4,43 @@ include 'normalTrainings.php';
 include 'easyTrainings.php';
 include 'results.php';
 
+
+// dictates the code for the training.
+if(isset($_POST['easy'])){
+	$diff = $_POST['easy'];
+	if($diff == null){
+		$diff = 0;
+	}
+	echo $diff;
+}else{
+	$diff = 0;
+	echo $diff;
+}
+
+
+if(isset($_POST['TWJ'])){
+	$TWJ = $_POST['TWJ'];
+	if($TWJ == null){
+		$TWJ = 0;
+	}
+	echo $TWJ;
+}else{
+	$TWJ = 0;
+	echo $TWJ;
+}
+
+
+if(isset($_POST['AWJ'])){
+	$AWJ = $_POST['AWJ'];
+	if($AWJ == null){
+		$AWJ = 0;
+	}
+	echo $AWJ;
+}else{
+	$AWJ = 0;
+	echo $AWJ;
+}
+
 	$answers = array();
 
 	$wolfHacks = [ // Base hacks of wolfram, contains all
@@ -54,29 +91,35 @@ include 'results.php';
 <html> 
 <head> 
 <link rel="stylesheet" href="css.css">
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script> 
 </head> <br>
 	<?php
-	if(isset($_POST['Easy1'])) { // [easy] PHP side of the buttons that dictate difficulty / clients 
+	
+	if($TWJ == 0 && $AWJ == 0 && $diff == 0) { // [easy] PHP side of the buttons that dictate difficulty / clients 
 		$TrainerHacks = $wolfHacks;
 		$AssistantHacks = $wolfHacks;
 		genEasy(); }
 
-		if(isset($_POST['Easy2'])) {
+		if($TWJ == 0 && $AWJ == 1 && $diff == 0) {
 			$TrainerHacks = $wolfHacks;
 			$AssistantHacks = $jigHacks;
 			genEasy(); }
 
-			if(isset($_POST['Easy3'])) {
+			if($TWJ == 1 && $AWJ == 1 && $diff == 0) {
 				$TrainerHacks = $jigHacks;
 				$AssistantHacks = $jigHacks;
 				genEasy(); }
 
-				if(isset($_POST['Easy4'])) {
+				if($TWJ == 1 && $AWJ == 0 && $diff == 0) {
 					$TrainerHacks = $jigHacks;
 					$AssistantHacks = $wolfHacks;
 					genEasy(); }
 					
-	if(isset($_POST['Normal1'])) { // [normal] PHP side of the buttons that dictate difficulty / clients 
+	
+	
+
+	if($TWJ == 0 && $AWJ == 0 && $diff == 1) { // [normal] PHP side of the buttons that dictate difficulty / clients 
 		$TrainerHacks = $wolfHacks;
 		$TrainerHacks2 = $wolfHacks2;
 		$TrainerHacks3 = $wolfHacks3;
@@ -85,7 +128,7 @@ include 'results.php';
 		$AssistantHacks3 = $wolfHacks3;
 		genNormal(); }
 
-		if(isset($_POST['Normal2'])) {
+		if($TWJ == 0 && $AWJ == 1 && $diff == 1) {
 			$TrainerHacks = $wolfHacks;
 			$TrainerHacks2 = $wolfHacks2;
 			$TrainerHacks3 = $wolfHacks3;
@@ -94,7 +137,7 @@ include 'results.php';
 			$AssistantHacks3 = $jigHacks3;
 			genNormal(); }
 
-			if(isset($_POST['Normal3'])) {
+			if($TWJ == 1 && $AWJ == 1 && $diff == 1) {
 				$TrainerHacks = $jigHacks;
 				$TrainerHacks2 = $jigHacks2;
 				$TrainerHacks3 = $jigHacks3;
@@ -103,7 +146,7 @@ include 'results.php';
 				$AssistantHacks3 = $jigHacks3;
 				genNormal(); }
 
-				if(isset($_POST['Normal4'])) {
+				if($TWJ == 1 && $AWJ == 0 && $diff == 1) {
 					$TrainerHacks = $jigHacks;
 					$TrainerHacks2 = $jigHacks2;
 					$TrainerHacks3 = $jigHacks3;
@@ -111,43 +154,36 @@ include 'results.php';
 					$AssistantHacks2 = $wolfHacks2;
 					$AssistantHacks3 = $wolfHacks3;
 					genNormal(); } 
+
+
+
 		?> 
 		
 		<br>
 
-	<form method="post"> <!-- HTML side of the Buttons that dictate difficulty / clients -->
-
-		<input type="submit" style="background-color:#58CD50" name="Easy1" value="Easy   W/W "/>
-		<input type="submit" style="background-color:#DB881B" name="Easy2" value="Easy   W/J "/>
-		<input type="submit" style="background-color:#DB1B1B" name="Easy3" value="Easy   J/J "/>
-		<input type="submit" style="background-color:#DB881B" name="Easy4" value="Easy   J/W "/>
-			<br>
-		<input type="submit" style="background-color:#58CD50" name="Normal1" value="Normal W/W"/>
-		<input type="submit" style="background-color:#DB881B" name="Normal2" value="Normal W/J"/>
-		<input type="submit" style="background-color:#DB1B1B" name="Normal3" value="Normal J/J"/>
-		<input type="submit" style="background-color:#DB881B" name="Normal4" value="Normal J/W"/>
-		
+	<form method="post">
+				<div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" name="easy" id="easy">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Eeasy/Normal
+                        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" name="TWJ" id="TWJ">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Trainer W/J
+                        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" name="AWJ" id="AWJ">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Assistant W/J
+                        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
 		</form> 
 
 <body>
-	<table> <!-- Fields in which you'll put the trials their answers to be calculated automaticaly -->
-		<tr>
-		<td><input type="text" size="8" name="ansTra1a"></td>
-		<td><input type="text" size="8" name="ansTra1b"></td>
-		</tr> <tr>
-			<td><input type="text" size="8" name="ansTra2a"></td>
-			<td><input type="text" size="8" name="ansTra2b"></td>
-			</tr> <tr>
-				<td><input type="text" size="8" name="ansTra3a"></td>
-				<td><input type="text" size="8" name="ansTra3b"></td>
-				</tr> <tr>
-					<td><input type="text" size="8" name="ansTra4a"></td>
-					<td><input type="text" size="8" name="ansTra4b"></td>
-					</tr> <tr>
-						<td><input type="text" size="8" name="ansTra5a"></td>
-						<td><input type="text" size="8" name="ansTra5b"></td>
-						</tr> 
-		</table>
 
 </body>
 </html> 
